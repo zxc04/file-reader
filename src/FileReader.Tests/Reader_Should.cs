@@ -161,6 +161,20 @@ namespace FileReader.Tests
 
             Assert.Null(content);
         }
+
+        [Fact]
+        public void ReadEncryptedJson_WhenFileExists()
+        {
+            var path = "TestFiles/JsonFile.txt";
+            string expected = "expected";
+            var encryptionProviderMock = new Mock<IEncryptionProvider>();
+            encryptionProviderMock.Setup(m => m.Decrypt(It.IsAny<string>())).Returns(expected);
+            var reader = new Reader(encryptionProviderMock.Object, null);
+
+            string actual = reader.ReadJsonFile(path, true);
+
+            Assert.Equal(expected, actual);
+        }
         #endregion Json File
     }
 }
