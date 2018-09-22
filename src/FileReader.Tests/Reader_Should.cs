@@ -175,6 +175,34 @@ namespace FileReader.Tests
 
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void ReadJsonWithRole_WhenFileExists()
+        {
+            var path = "TestFiles/JsonFile.txt";
+            var role = "role";
+            var roleProviderMock = new Mock<IRoleProvider>();
+            roleProviderMock.Setup(m => m.HasAccess(path, role)).Returns(true);
+            var reader = new Reader(null, roleProviderMock.Object);
+
+            string content = reader.ReadJsonFile(path, role: role);
+
+            Assert.NotEmpty(content);
+        }
+
+        [Fact]
+        public void ThrowUnauthorizedException_WhenJsonFileAndUserNotInRole()
+        {
+            var path = "TestFiles/JsonFile.txt";
+            var role = "role";
+            var roleProviderMock = new Mock<IRoleProvider>();
+            roleProviderMock.Setup(m => m.HasAccess(path, role)).Returns(false);
+            var reader = new Reader(null, roleProviderMock.Object);
+
+            Action act = () => reader.ReadJsonFile(path, role: role);
+
+            Assert.Throws<UnauthorizedAccessException>(act);
+        }
         #endregion Json File
     }
 }
