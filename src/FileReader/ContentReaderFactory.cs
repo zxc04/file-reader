@@ -18,6 +18,11 @@ namespace FileReader
                 return new XmlFileReader();
             }
 
+            if (fileType == FileTypes.Json)
+            {
+                return new JsonFileReader();
+            }
+
             throw new NotImplementedException();
         }
     }

@@ -7,6 +7,7 @@ namespace FileReader.Tests
 {
     public class Reader_Should
     {
+        #region Text File
         [Fact]
         public void ReadText_WhenFileExists()
         {
@@ -70,7 +71,9 @@ namespace FileReader.Tests
 
             Assert.Throws<UnauthorizedAccessException>(act);
         }
+        #endregion Text File
 
+        #region XML File
         [Fact]
         public void ReadXml_WhenFileExists()
         {
@@ -134,5 +137,30 @@ namespace FileReader.Tests
 
             Assert.Equal(expected, actual);
         }
+        #endregion XML File
+
+        #region Json File
+        [Fact]
+        public void ReadJson_WhenFileExists()
+        {
+            var reader = new Reader();
+            var path = "TestFiles/JsonFile.txt";
+
+            string content = reader.ReadJsonFile(path);
+
+            Assert.NotEmpty(content);
+        }
+
+        [Fact]
+        public void ReturnNull_WhenJsonFileDoesntExist()
+        {
+            var reader = new Reader();
+            var path = string.Empty;
+
+            string content = reader.ReadJsonFile(path);
+
+            Assert.Null(content);
+        }
+        #endregion Json File
     }
 }
