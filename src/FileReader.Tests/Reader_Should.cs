@@ -92,5 +92,19 @@ namespace FileReader.Tests
 
             Assert.Throws<UnauthorizedAccessException>(act);
         }
+
+        [Fact]
+        public void ReadEncryptedXml_WhenFileExists()
+        {
+            var path = "TestFiles/XmlFile.xml";
+            string expected = "expected";
+            var encryptionProviderMock = new Mock<IEncryptionProvider>();
+            encryptionProviderMock.Setup(m => m.Decrypt(It.IsAny<string>())).Returns(expected);
+            var reader = new Reader(encryptionProviderMock.Object, null);
+
+            string actual = reader.ReadXmlFile(path, isEncrypted: true);
+
+            Assert.Equal(expected, actual);
+        }
     }
 }
