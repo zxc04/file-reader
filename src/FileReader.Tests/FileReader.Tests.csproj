@@ -13,11 +13,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FileReader.ContentReaders\FileReader.ContentReaders.csproj" />
     <ProjectReference Include="..\FileReader\FileReader.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="TestFiles\TextFile.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestFiles\XmlFile.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

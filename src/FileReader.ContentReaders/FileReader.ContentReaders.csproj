@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FileReader.Common\FileReader.Common.csproj" />
-    <ProjectReference Include="..\FileReader.ContentReaders\FileReader.ContentReaders.csproj" />
   </ItemGroup>
 
 </Project>

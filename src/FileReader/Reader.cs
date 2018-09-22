@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using FileReader.Common;
+using System.IO;
 
 namespace FileReader
 {
@@ -6,10 +7,19 @@ namespace FileReader
     {
         public string ReadTextFile(string path)
         {
-            if (!File.Exists(path))
-                return null;
+            return ReadFile(FileTypes.Text, path);
+        }
 
-            return File.ReadAllText(path);
+        public string ReadXmlFile(string path)
+        {
+            return ReadFile(FileTypes.Xml, path);
+        }
+
+        public string ReadFile(FileTypes fileType, string path)
+        {
+            IContentReader reader = ContentReaderFactory.GetReader(fileType);
+
+            return reader.ReadContent(path);
         }
     }
 }

@@ -25,5 +25,27 @@ namespace FileReader.Tests
 
             Assert.Null(content);
         }
+
+        [Fact]
+        public void ReadXml_WhenFileExists()
+        {
+            var reader = new Reader();
+            var path = "TestFiles/XmlFile.xml";
+
+            string content = reader.ReadXmlFile(path);
+
+            Assert.NotEmpty(content);
+        }
+
+        [Fact]
+        public void ReturnNull_WhenXmlFileDoesntExist()
+        {
+            var reader = new Reader();
+            var path = string.Empty;
+
+            string content = reader.ReadXmlFile(path);
+
+            Assert.Null(content);
+        }
     }
 }
