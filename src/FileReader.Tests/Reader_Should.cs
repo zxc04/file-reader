@@ -44,6 +44,34 @@ namespace FileReader.Tests
         }
 
         [Fact]
+        public void ReadTextWithRole_WhenFileExists()
+        {
+            var path = "TestFiles/TextFile.txt";
+            var role = "role";
+            var roleProviderMock = new Mock<IRoleProvider>();
+            roleProviderMock.Setup(m => m.HasAccess(path, role)).Returns(true);
+            var reader = new Reader(null, roleProviderMock.Object);
+
+            string content = reader.ReadTextFile(path, role: role);
+
+            Assert.NotEmpty(content);
+        }
+
+        [Fact]
+        public void ThrowUnauthorizedException_WhenTextFileAndUserNotInRole()
+        {
+            var path = "TestFiles/TextFile.txt";
+            var role = "role";
+            var roleProviderMock = new Mock<IRoleProvider>();
+            roleProviderMock.Setup(m => m.HasAccess(path, role)).Returns(false);
+            var reader = new Reader(null, roleProviderMock.Object);
+
+            Action act = () => reader.ReadTextFile(path, role: role);
+
+            Assert.Throws<UnauthorizedAccessException>(act);
+        }
+
+        [Fact]
         public void ReadXml_WhenFileExists()
         {
             var reader = new Reader();

@@ -21,14 +21,9 @@ namespace FileReader
             this.roleProvider = roleProvider;
         }
 
-        public string ReadTextFile(string path)
+        public string ReadTextFile(string path, bool isEncrypted = false, string role = null)
         {
-            return ReadFile(FileTypes.Text, path);
-        }
-
-        public string ReadTextFile(string path, bool isEncrypted)
-        {
-            return ReadFile(FileTypes.Text, path, isEncrypted: isEncrypted);
+            return ReadFile(FileTypes.Text, path, role: role, isEncrypted: isEncrypted);
         }
         
         public string ReadXmlFile(string path, string role = null, bool isEncrypted = false)
