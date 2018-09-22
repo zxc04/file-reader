@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FileReader.ContentReaders\FileReader.ContentReaders.csproj" />
     <ProjectReference Include="..\FileReader.EncryptionProviders\FileReader.EncryptionProviders.csproj" />
+    <ProjectReference Include="..\FileReader.RoleProviders\FileReader.RoleProviders.csproj" />
     <ProjectReference Include="..\FileReader\FileReader.csproj" />
   </ItemGroup>
 

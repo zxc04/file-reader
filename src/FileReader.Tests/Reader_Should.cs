@@ -1,5 +1,6 @@
 using FileReader.Common;
 using Moq;
+using System;
 using Xunit;
 
 namespace FileReader.Tests
@@ -20,13 +21,13 @@ namespace FileReader.Tests
         [Fact]
         public void ReadEncryptedText_WhenFileExists()
         {
-            var reader = new Reader();
             var path = "TestFiles/TextFile.txt";
             string expected = "expected";
             var encryptionProviderMock = new Mock<IEncryptionProvider>();
             encryptionProviderMock.Setup(m => m.Decrypt(It.IsAny<string>())).Returns(expected);
+            var reader = new Reader(encryptionProviderMock.Object, null);
 
-            string actual = reader.ReadTextFile(path, encryptionProviderMock.Object);
+            string actual = reader.ReadTextFile(path, true);
 
             Assert.Equal(expected, actual);
         }
@@ -62,6 +63,34 @@ namespace FileReader.Tests
             string content = reader.ReadXmlFile(path);
 
             Assert.Null(content);
+        }
+
+        [Fact]
+        public void ReadXmlWithRole_WhenFileExists()
+        {
+            var path = "TestFiles/XmlFile.xml";
+            var role = "role";
+            var roleProviderMock = new Mock<IRoleProvider>();
+            roleProviderMock.Setup(m => m.HasAccess(path, role)).Returns(true);
+            var reader = new Reader(null, roleProviderMock.Object);
+
+            string content = reader.ReadXmlFile(path, role);
+
+            Assert.NotEmpty(content);
+        }
+
+        [Fact]
+        public void ThrowUnauthorizedException_WhenXmlFileAndUserNotInRole()
+        {
+            var path = "TestFiles/XmlFile.xml";
+            var role = "role";
+            var roleProviderMock = new Mock<IRoleProvider>();
+            roleProviderMock.Setup(m => m.HasAccess(path, role)).Returns(false);
+            var reader = new Reader(null, roleProviderMock.Object);
+
+            Action act = () => reader.ReadXmlFile(path, role);
+
+            Assert.Throws<UnauthorizedAccessException>(act);
         }
     }
 }
