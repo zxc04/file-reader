@@ -1,3 +1,5 @@
+using FileReader.Common;
+using Moq;
 using Xunit;
 
 namespace FileReader.Tests
@@ -13,6 +15,20 @@ namespace FileReader.Tests
             string content = reader.ReadTextFile(path);
 
             Assert.NotEmpty(content);
+        }
+
+        [Fact]
+        public void ReadEncryptedText_WhenFileExists()
+        {
+            var reader = new Reader();
+            var path = "TestFiles/TextFile.txt";
+            string expected = "expected";
+            var encryptionProviderMock = new Mock<IEncryptionProvider>();
+            encryptionProviderMock.Setup(m => m.Decrypt(It.IsAny<string>())).Returns(expected);
+
+            string actual = reader.ReadTextFile(path, encryptionProviderMock.Object);
+
+            Assert.Equal(expected, actual);
         }
 
         [Fact]
