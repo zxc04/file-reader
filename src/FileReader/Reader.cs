@@ -15,7 +15,7 @@ namespace FileReader
             return ReadFile(FileTypes.Xml, path);
         }
 
-        private string ReadFile(FileTypes fileType, string path)
+        public string ReadFile(FileTypes fileType, string path)
         {
             IContentReader reader = ContentReaderFactory.GetReader(fileType);
 
