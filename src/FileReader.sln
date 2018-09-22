@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileReader.Tests", "FileRea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileReader", "FileReader\FileReader.csproj", "{33E7F0FA-10A0-41F2-B67E-5BE51E8AA001}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileReader.Common", "FileReader.Common\FileReader.Common.csproj", "{6CD019B4-4848-4905-8930-9A0FDE64069B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileReader.ContentReaders", "FileReader.ContentReaders\FileReader.ContentReaders.csproj", "{98458DFF-A04B-4647-B95C-14D381CE1A6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{33E7F0FA-10A0-41F2-B67E-5BE51E8AA001}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33E7F0FA-10A0-41F2-B67E-5BE51E8AA001}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33E7F0FA-10A0-41F2-B67E-5BE51E8AA001}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CD019B4-4848-4905-8930-9A0FDE64069B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CD019B4-4848-4905-8930-9A0FDE64069B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CD019B4-4848-4905-8930-9A0FDE64069B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CD019B4-4848-4905-8930-9A0FDE64069B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98458DFF-A04B-4647-B95C-14D381CE1A6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98458DFF-A04B-4647-B95C-14D381CE1A6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98458DFF-A04B-4647-B95C-14D381CE1A6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98458DFF-A04B-4647-B95C-14D381CE1A6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
