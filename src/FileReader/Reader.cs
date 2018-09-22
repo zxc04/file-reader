@@ -28,17 +28,12 @@ namespace FileReader
 
         public string ReadTextFile(string path, bool isEncrypted)
         {
-            return ReadFile(FileTypes.Text, path, isEncrypted: true);
+            return ReadFile(FileTypes.Text, path, isEncrypted: isEncrypted);
         }
-
-        public string ReadXmlFile(string path)
+        
+        public string ReadXmlFile(string path, string role = null, bool isEncrypted = false)
         {
-            return ReadFile(FileTypes.Xml, path);
-        }
-
-        public string ReadXmlFile(string path, string role)
-        {
-            return ReadFile(FileTypes.Xml, path, role: role);
+            return ReadFile(FileTypes.Xml, path, role: role, isEncrypted: isEncrypted);
         }
 
         public string ReadFile(FileTypes fileType, string path, bool isEncrypted = false, string role = null)
