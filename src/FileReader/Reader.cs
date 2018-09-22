@@ -31,9 +31,9 @@ namespace FileReader
             return ReadFile(FileTypes.Xml, path, role: role, isEncrypted: isEncrypted);
         }
 
-        public string ReadJsonFile(string path)
+        public string ReadJsonFile(string path, bool isEncrypted = false)
         {
-            return ReadFile(FileTypes.Json, path);
+            return ReadFile(FileTypes.Json, path, isEncrypted: isEncrypted);
         }
 
         public string ReadFile(FileTypes fileType, string path, bool isEncrypted = false, string role = null)
