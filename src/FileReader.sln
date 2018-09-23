@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileReader.ContentReaders",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileReader.EncryptionProviders", "FileReader.EncryptionProviders\FileReader.EncryptionProviders.csproj", "{BB0A3FF3-70C9-482E-B8A9-B18048C71D18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileReader.RoleProviders", "FileReader.RoleProviders\FileReader.RoleProviders.csproj", "{07BF443D-61BE-4204-9AEC-DD47CECEEE15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileReader.RoleProviders", "FileReader.RoleProviders\FileReader.RoleProviders.csproj", "{07BF443D-61BE-4204-9AEC-DD47CECEEE15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileReader.ConsoleApp", "FileReader.ConsoleApp\FileReader.ConsoleApp.csproj", "{B2ED5D23-4B21-41A6-9172-34F2F5B29E40}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{07BF443D-61BE-4204-9AEC-DD47CECEEE15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07BF443D-61BE-4204-9AEC-DD47CECEEE15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07BF443D-61BE-4204-9AEC-DD47CECEEE15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2ED5D23-4B21-41A6-9172-34F2F5B29E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2ED5D23-4B21-41A6-9172-34F2F5B29E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2ED5D23-4B21-41A6-9172-34F2F5B29E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2ED5D23-4B21-41A6-9172-34F2F5B29E40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
